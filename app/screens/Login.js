@@ -5,14 +5,33 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Alert,
   StyleSheet,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Login() {
+import {connect} from 'react-redux';
+import {setUser} from '../redux/actions';
+import {service} from '../services/service';
+import {validateEmail} from '../utils/validation';
+
+const Login = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  console.log(props);
+
+  const handleLogin = () => {
+    if (!validateEmail(email)) {
+      Alert.alert('Formato de Email incorrecto!');
+    } else {
+      const payload = {
+        username: email,
+        password,
+      };
+    }
+  };
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -66,7 +85,7 @@ export default function Login() {
             Forgot Password
           </Text>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={() => handleLogin()}>
             <Text style={styles.buttonText}>LOG IN</Text>
           </TouchableOpacity>
         </View>
@@ -78,7 +97,10 @@ export default function Login() {
       </View>
     </SafeAreaView>
   );
-}
+};
+
+const mapStateToProps = state => state.reducer.usuario;
+export default connect(mapStateToProps, setUser)(Login);
 
 const styles = StyleSheet.create({
   mainContainer: {

@@ -42,6 +42,8 @@
 		7E95011E421EAE28238AF8B6 /* libPods-maniak_login.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-maniak_login.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = maniak_login/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2FB68D7EAE7B49FBEA5536A /* Pods-maniak_login-maniak_loginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-maniak_login-maniak_loginTests.debug.xcconfig"; path = "Target Support Files/Pods-maniak_login-maniak_loginTests/Pods-maniak_login-maniak_loginTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9F16BC926BED0B30011754F /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
+		A9F16BCA26BED1130011754F /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		BC1326ED5F6C1F3A2C5BA225 /* Pods-maniak_login-maniak_loginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-maniak_login-maniak_loginTests.release.xcconfig"; path = "Target Support Files/Pods-maniak_login-maniak_loginTests/Pods-maniak_login-maniak_loginTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 		13B07FAE1A68108700A75B9A /* maniak_login */ = {
 			isa = PBXGroup;
 			children = (
+				A9F16BC826BED0880011754F /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -137,6 +140,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A9F16BC826BED0880011754F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A9F16BC926BED0B30011754F /* Roboto.ttf */,
+				A9F16BCA26BED1130011754F /* FontAwesome.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		E2483C40B59D41C6EE367C06 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +157,6 @@
 				A2FB68D7EAE7B49FBEA5536A /* Pods-maniak_login-maniak_loginTests.debug.xcconfig */,
 				BC1326ED5F6C1F3A2C5BA225 /* Pods-maniak_login-maniak_loginTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     marginTop: '30%',
   },
   title: {
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 28,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     color: '#373A4D',
   },
   legend: {
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 14,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   form: {},
   label: {
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: 12,
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#373A4D',
   },
   buttonText: {
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontStyle: 'normal',
     fontWeight: '700',
     fontSize: 14,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     marginBottom: '16%',
   },
   footerLabel: {
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: 16,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     color: '#373A4D',
   },
   footerBoldLabel: {
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontStyle: 'normal',
     fontWeight: '700',
     fontSize: 16,

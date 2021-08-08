@@ -11,7 +11,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {connect} from 'react-redux';
-import {setUser} from '../redux/actions';
+import * as actions from '../redux/actions';
 import {service} from '../services/service';
 import {validateEmail} from '../utils/validation';
 
@@ -23,15 +23,30 @@ const Login = props => {
   console.log(props);
 
   const handleLogin = () => {
-    if (!validateEmail(email)) {
-      Alert.alert('Formato de Email incorrecto!');
+    if (!email || !password) {
+      Alert.alert('Enter email and password');
+    } else if (!validateEmail(email)) {
+      Alert.alert('Wrong email format');
     } else {
-      const payload = {
-        username: email,
-        password,
-      };
+      onLogin();
     }
   };
+
+  async function onLogin() {
+    const payload = {
+      username: email,
+      password,
+    };
+    const response = await service('POST', 'login', payload, true);
+    if (response) {
+      props.setUser({
+        token: response.body.token,
+        isLogged: true,
+      });
+    } else {
+      Alert.alert('Incorrect username or password');
+    }
+  }
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -100,7 +115,7 @@ const Login = props => {
 };
 
 const mapStateToProps = state => state.reducer.usuario;
-export default connect(mapStateToProps, setUser)(Login);
+export default connect(mapStateToProps, actions)(Login);
 
 const styles = StyleSheet.create({
   mainContainer: {

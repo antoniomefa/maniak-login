@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
 import * as actions from '../redux/actions';
 import {service} from '../services/service';
+import {getToken} from '../services/storage';
 import {LOGIN} from '../utils/routes';
 import {validateEmail} from '../utils/validation';
 
@@ -20,6 +21,20 @@ const Login = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      // Valida si existe un token guardado para reanudar la sesión
+      const currentToken = await getToken();
+      if (currentToken) {
+        props.setUser({
+          token: currentToken,
+          isLogged: true,
+        });
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleLogin = () => {
     if (!email || !password) {

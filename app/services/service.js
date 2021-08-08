@@ -1,5 +1,5 @@
 import {URL} from '../utils/routes';
-//import { savePlace } from './storage/placeStorage';
+import {saveToken, getToken} from './storage';
 
 export const service = async (method, path, payload, isLogin) => {
   const requestBody = JSON.stringify(payload);
@@ -9,7 +9,7 @@ export const service = async (method, path, payload, isLogin) => {
   };
 
   if (!isLogin) {
-    const token = 'FXxqzkVb4yPgpufkHZxLNkfX2vpFdTbzwWnQ36'; //await getToken();
+    const token = await getToken();
     headers = {
       ...headers,
       Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ export const service = async (method, path, payload, isLogin) => {
     // response.ok devuelve true si el status está entre 200 y 299
     if (response.ok) {
       if (json.token) {
-        //saveToken(json.jwt);
+        saveToken(json.token);
       }
       return {
         status: response.ok,

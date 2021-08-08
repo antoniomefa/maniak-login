@@ -12,6 +12,7 @@ import {
 import {connect} from 'react-redux';
 import * as actions from '../redux/actions';
 import {service} from '../services/service';
+import {deleteToken} from '../services/storage';
 import {IMAGES} from '../utils/routes';
 
 import PhoneItem from '../components/PhotoItem';
@@ -31,6 +32,7 @@ const Home = props => {
   }, []);
 
   const onLogOut = () => {
+    deleteToken(); // Borra el token antes de cerrar la sesión
     props.setUser({
       token: null,
       isLogged: false,

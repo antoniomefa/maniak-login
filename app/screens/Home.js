@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {
   SafeAreaView,
+  Alert,
   View,
   Text,
   TouchableOpacity,
@@ -10,13 +11,24 @@ import {
 
 import {connect} from 'react-redux';
 import * as actions from '../redux/actions';
+import {service} from '../services/service';
+import {IMAGES} from '../utils/routes';
+
+import PhoneItem from '../components/PhotoItem';
 
 const Home = props => {
-  // useEffect(() => {
-  //   async () => {
-
-  //   }
-  // }, [])
+  useEffect(() => {
+    (async () => {
+      const response = await service('GET', IMAGES);
+      if (response) {
+        props.setPhotos(response.body);
+      } else {
+        Alert.alert('Session closed');
+        onLogOut();
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onLogOut = () => {
     props.setUser({
@@ -25,23 +37,28 @@ const Home = props => {
     });
   };
 
-  console.log(props);
-
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <SafeAreaView>
         <View style={styles.header}>
           <Text style={styles.title}>My Photos</Text>
           <TouchableOpacity
             style={styles.logoutButton}
             onPress={() => onLogOut()}>
-            <Text style={styles.logout}>Log out</Text>
+            <Text style={styles.logoutText}>Log out</Text>
           </TouchableOpacity>
         </View>
-
-        <View style={styles.list} />
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+      {props.fotos && (
+        <FlatList
+          data={props.fotos}
+          renderItem={({item}) => {
+            return <PhoneItem props={item} />;
+          }}
+          keyExtractor={item => item.id}
+        />
+      )}
+    </View>
   );
 };
 
@@ -50,10 +67,11 @@ export default connect(mapStateToProps, actions)(Home);
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
+    flex: 1,
   },
   header: {
-    margin: '8%',
+    marginVertical: '8%',
+    marginHorizontal: '6%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

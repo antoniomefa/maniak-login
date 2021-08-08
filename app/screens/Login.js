@@ -13,14 +13,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
 import * as actions from '../redux/actions';
 import {service} from '../services/service';
+import {LOGIN} from '../utils/routes';
 import {validateEmail} from '../utils/validation';
 
 const Login = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
-  console.log(props);
 
   const handleLogin = () => {
     if (!email || !password) {
@@ -37,7 +36,7 @@ const Login = props => {
       username: email,
       password,
     };
-    const response = await service('POST', 'login', payload, true);
+    const response = await service('POST', LOGIN, payload, true);
     if (response) {
       props.setUser({
         token: response.body.token,

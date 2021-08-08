@@ -1,4 +1,4 @@
-import {SET_USER, SET_FOTOS} from './types';
+import {SET_USER, SET_PHOTOS} from './types';
 
 const INITIAL_STATE = {
   usuario: {
@@ -15,7 +15,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         usuario: action.payload,
       };
-    case SET_FOTOS:
+    case SET_PHOTOS:
       return {
         ...state,
         fotos: action.payload,

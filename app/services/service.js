@@ -9,7 +9,7 @@ export const service = async (method, path, payload, isLogin) => {
   };
 
   if (!isLogin) {
-    const token = ''; //await getToken();
+    const token = 'FXxqzkVb4yPgpufkHZxLNkfX2vpFdTbzwWnQ36'; //await getToken();
     headers = {
       ...headers,
       Authorization: `Bearer ${token}`,

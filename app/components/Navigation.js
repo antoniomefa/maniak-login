@@ -18,6 +18,7 @@ const Navigation = props => {
           <Tab.Navigator
             screenOptions={{
               headerShown: false,
+              tabBarActiveTintColor: '#373A4D',
             }}>
             <Tab.Screen
               name="Home"

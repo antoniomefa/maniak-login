@@ -4,6 +4,7 @@ This is a React Native Application for both Android and iOS, that consumes APIs 
 
 ### `Instructions to run the App`
 
+- Make sure you have the correct environment settings for React Native: 'https://reactnative.dev/docs/environment-setup'
 - Open a new Terminal window
 - Clon the repository with command "git clone https://gitlab.com/antoniomefa/maniak-login.git"
 - Enter to the project folder "maniak-login"

@@ -1,4 +1,4 @@
-<h1>Login Challenge for MANIAK<h1>
+<h1>Login Challenge<h1>
 
 This is a React Native Application for both Android and iOS, that consumes APIs and output the result.
 
@@ -6,7 +6,7 @@ This is a React Native Application for both Android and iOS, that consumes APIs 
 
 - Make sure you have the correct environment settings for React Native: 'https://reactnative.dev/docs/environment-setup'
 - Open a new Terminal window
-- Clon the repository with command "git clone https://gitlab.com/antoniomefa/maniak-login.git"
+- Clon the repository with command "git clone https://github.com/antoniomefa/maniak-login.git"
 - Enter to the project folder "maniak-login"
 - Run "npm install" command for install all the dependencies
 - Run "npx react-native run-android" command for run the Android App
@@ -33,3 +33,9 @@ Home screen
 <p align="center"><img src="assets/img/home.png"/></p>
 
 By: Antonio Mendiola Farías - 2021
+
+
+### `Solving issues`
+
+To use a specific java version, inside the folder project execute:
+export JAVA_HOME=`/usr/libexec/java_home -v 15.0.2`
